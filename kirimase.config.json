@@ -1,8 +1,6 @@
 {
   "hasSrc": true,
-  "packages": [
-    "shadcn-ui"
-  ],
+  "packages": ["shadcn-ui"],
   "preferredPackageManager": "yarn",
   "rootPath": "src/",
   "componentLib": "shadcn-ui",
