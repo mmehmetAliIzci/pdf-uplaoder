@@ -12,6 +12,16 @@ module.exports = {
         '2xl': '1400px',
       },
     },
+    fontSize: {
+      sm: '0.8rem',
+      base: '1rem',
+      xl: '1.25rem',
+      '2xl': '1.563rem',
+      '3xl': '1.953rem',
+      '4xl': '2.441rem',
+      '5xl': '3.052rem',
+    },
+
     extend: {
       colors: {
         border: 'hsl(var(--border))',
@@ -23,9 +33,25 @@ module.exports = {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
         },
+        primary: {
+          DEFAULT: 'hsl(var(--primary-500))',
+          200: 'hsl(var(--primary-200))',
+          '200-foreground': 'hsl(var(--primary-200-foreground))',
+          400: 'hsl(var(--primary-400))',
+          '400-foreground': 'hsl(var(--primary-400-foreground))',
+          500: 'hsl(var(--primary-500))',
+          '500-foreground': 'hsl(var(--primary-500-foreground))',
+          600: 'hsl(var(--primary-600))',
+          '600-foreground': 'hsl(var(--primary-600-foreground))',
+          700: 'hsl(var(--primary-700))',
+          '700-foreground': 'hsl(var(--primary-700-foreground))',
+        },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+          DEFAULT: 'hsl(var(--secondary-500))',
+          500: 'hsl(var(--secondary-500))',
+          '500-foreground': 'hsl(var(--secondary-500-foreground))',
+          600: 'hsl(var(--secondary-600))',
+          '600-foreground': 'hsl(var(--secondary-600-foreground))',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
