@@ -2,7 +2,6 @@ html {
   font-size: 16px;
   line-height: 18.4px;
 }
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +9,7 @@ html {
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0, 0%, 100%, 1;
+    --foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -48,7 +47,7 @@ html {
 
     --ring: 215 20.2% 65.1%;
 
-    --radius: 0.3rem;
+    --radius: 0.5rem;
   }
 
   .dark {

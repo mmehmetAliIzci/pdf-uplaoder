@@ -31,7 +31,7 @@ export const TrustRating = async () => {
   return (
     <div className='flex items-center gap-1'>
       <span className='flex items-center gap-1'>{stars}</span>
-      <span className='text-sm text-foreground'>
+      <span className='text-sm text-white'>
         {data.trustRating} ({data.trustCount} votes)
       </span>
     </div>

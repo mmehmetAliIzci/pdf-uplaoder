@@ -17,9 +17,9 @@ module.exports = {
       base: '1rem',
       xl: '1.25rem',
       '2xl': '1.563rem',
-      '3xl': '1.953rem',
-      '4xl': '2.441rem',
-      '5xl': '3.052rem',
+      '3xl': '2.74rem',
+      '4xl': '2.488rem',
+      '5xl': '2.986rem', //h1
     },
 
     extend: {

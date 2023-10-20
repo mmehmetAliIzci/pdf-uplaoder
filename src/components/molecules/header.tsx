@@ -79,7 +79,7 @@ export const Header = () => {
                 height={17}
               />
             </span>
-            <span className='text-sm text-foreground'>Free</span>
+            <span className='text-sm text-white'>Free</span>
           </div>
           <div className='flex items-center gap-1'>
             <span className='flex items-center gap-1'>
@@ -90,7 +90,7 @@ export const Header = () => {
                 height={17}
               />
             </span>
-            <span className='text-sm text-foreground'>Online</span>
+            <span className='text-sm text-white'>Online</span>
           </div>
           <div className='flex items-center gap-1'>
             <span className='flex items-center gap-1'>
@@ -101,7 +101,7 @@ export const Header = () => {
                 height={17}
               />
             </span>
-            <span className='text-sm text-foreground'>No limits</span>
+            <span className='text-sm text-white'>No limits</span>
           </div>
         </div>
       </div>
