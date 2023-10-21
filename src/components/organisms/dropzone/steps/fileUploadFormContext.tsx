@@ -1,9 +1,15 @@
 import React, { ReactNode, useMemo, useState } from 'react';
 
+export type FileUploadConfig = {
+  dpi: number;
+  imageQuality: number;
+  grayScale: boolean;
+};
 export type FileUploadFormContextType = {
   currentFormState: {
     step: number;
     files: File[];
+    configuration?: FileUploadConfig;
   };
   updateFormState?: (payload: FileUploadFormContextType) => void;
   deleteFile?: (file: File) => void;
@@ -17,7 +23,11 @@ export const FileUploadFormContext =
 
 export function FileUploadFormProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<FileUploadFormContextType>({
-    currentFormState: { step: 0, files: [] },
+    currentFormState: {
+      step: 0,
+      files: [],
+      configuration: { dpi: 144, imageQuality: 100, grayScale: false },
+    },
     updateFormState: (_: FileUploadFormContextType) => {},
   });
 
@@ -43,9 +53,10 @@ export function FileUploadFormProvider({ children }: { children: ReactNode }) {
           currentFormState: {
             step: 0,
             files: [],
+            configuration: { dpi: 144, imageQuality: 100, grayScale: false },
           },
         }));
-      }
+      },
     }),
     [data.currentFormState]
   );

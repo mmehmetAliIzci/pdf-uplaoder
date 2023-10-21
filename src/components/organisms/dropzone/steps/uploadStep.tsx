@@ -4,7 +4,7 @@ import { DragEvent, ChangeEvent, useContext } from 'react';
 import { FileUploadFormContext } from './fileUploadFormContext';
 
 export const UploadStep = () => {
-  const { updateFormState } = useContext(
+  const { updateFormState, currentFormState } = useContext(
     FileUploadFormContext
   );
 
@@ -13,6 +13,7 @@ export const UploadStep = () => {
     if (files && updateFormState) {
       updateFormState({
         currentFormState: {
+          configuration: currentFormState.configuration,
           step: 1,
           files: Array.from(files),
         },
@@ -36,7 +37,7 @@ export const UploadStep = () => {
   };
 
   return (
-    <div className='flex flex-col h-96 items-center justify-center'>
+    <div className='flex h-96 flex-col items-center justify-center'>
       <form
         onDrop={handleDrop}
         onDragOver={(e) => e.preventDefault()}
@@ -50,7 +51,10 @@ export const UploadStep = () => {
           style={{ display: 'none' }}
           id='hiddenFileInput'
         />
-        <label htmlFor='hiddenFileInput' className='flex flex-col items-center cursor-pointer'>
+        <label
+          htmlFor='hiddenFileInput'
+          className='flex cursor-pointer flex-col items-center'
+        >
           <Image
             alt='half cut page'
             src='./half-cut-page.svg'

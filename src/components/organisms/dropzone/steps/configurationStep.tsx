@@ -1,25 +1,55 @@
 'use client';
 import { Fragment, useContext, useState } from 'react';
-import { FileUploadFormContext } from './fileUploadFormContext';
-import Image from 'next/image';
+import {
+  FileUploadConfig,
+  FileUploadFormContext,
+} from './fileUploadFormContext';
 import { cn } from '@/lib/utils';
 import { Slider } from '@/components/ui/slider';
 import { FilePreviewIcon } from '@/components/ui/filePreviewIcon';
 import { Switch } from '@/components/ui/switch';
+import { Button } from '@/components/ui/button';
 
 export const ConfigurationStep = () => {
-  const { currentFormState } = useContext(FileUploadFormContext);
-  const [config, setConfig] = useState<{
-    dpi: number;
-    imageQuality: number;
-    grayScale: boolean;
-  }>({
+  const { currentFormState, updateFormState } = useContext(
+    FileUploadFormContext
+  );
+  const [config, setConfig] = useState<FileUploadConfig>({
     dpi: 144,
     imageQuality: 100,
     grayScale: false,
   });
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function uploadFilesHandler() {
+    setIsLoading(true);
+    const results = [];
+
+    try {
+      for (const file of currentFormState.files) {
+        const formData = new FormData();
+        formData.append('file', file);
+        const response = await fetch('/api/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const data = await response.json();
+
+        results.push(data);
+      }
+
+      // Handle success (e.g. update UI)
+    } catch (error) {
+      console.error('There was an error uploading the files', error);
+      // Handle error (e.g. show error message)
+    }
+    setIsLoading(false);
+  }
+
   return (
     <>
+      {isLoading && <div>Uploading your files...</div>}
       <div className='flex flex-1 flex-col items-center justify-center'>
         {currentFormState.files.length > 0 ? (
           <div className='flex items-center space-x-4'>
@@ -46,7 +76,9 @@ export const ConfigurationStep = () => {
           value={[config.dpi]}
           step={5}
           className={cn('w-full py-5', '')}
-          onValueChange={(value) => setConfig((prev) => ({ ...prev, dpi: value[0] }))}
+          onValueChange={(value) =>
+            setConfig((prev) => ({ ...prev, dpi: value[0] }))
+          }
         />
 
         <span className='max-w-4 text-sm font-bold text-muted-foreground'>
@@ -58,7 +90,9 @@ export const ConfigurationStep = () => {
           value={[config.imageQuality]}
           step={1}
           className={cn('w-full py-5', '')}
-          onValueChange={(value) => setConfig((prev) => ({ ...prev, imageQuality: value[0] }))}
+          onValueChange={(value) =>
+            setConfig((prev) => ({ ...prev, imageQuality: value[0] }))
+          }
         />
 
         <span className='max-w-4 text-sm font-bold text-muted-foreground'>
@@ -74,6 +108,9 @@ export const ConfigurationStep = () => {
           />
           <span className='pl-3 text-sm text-muted-foreground'>GrayScale</span>
         </div>
+      </div>
+      <div className='my-3 flex justify-center'>
+        <Button onClick={uploadFilesHandler}>Compress</Button>
       </div>
     </>
   );

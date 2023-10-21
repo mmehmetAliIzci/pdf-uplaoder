@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 export const DropzoneHeader = () => {
   const { currentFormState, resetForm } = useContext(FileUploadFormContext);
 
-  console.warn(currentFormState);
   return (
     <div className='grid w-full grid-cols-3 grid-rows-1 place-items-center py-2'>
       <Button
