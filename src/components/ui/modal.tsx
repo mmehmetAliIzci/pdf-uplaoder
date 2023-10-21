@@ -16,7 +16,7 @@ export const Modal = ({
   return ReactDOM.createPortal(
     <>
       <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70'>
-        <div className='relative rounded bg-white pb-24 shadow-lg h-full w-full'>
+        <div className='relative h-full w-full rounded bg-white pb-24 shadow-lg'>
           <iframe
             className='h-full w-full'
             src={pdfSource}
@@ -25,7 +25,7 @@ export const Modal = ({
           <Button
             size={'xs'}
             onClick={onClose}
-            className='mt-4 rounded bg-red-600 px-4 py-2 mr-2 float-right text-white hover:bg-red-700'
+            className='float-right mr-2 mt-4 rounded bg-red-600 px-4 py-2 text-white hover:bg-red-700'
           >
             Close
           </Button>

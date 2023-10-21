@@ -7,9 +7,10 @@ export type FileUploadConfig = {
 };
 export type FileUploadFormContextType = {
   currentFormState: {
-    step: number;
+    step: 0 | 1 | 2;
     files: File[];
     configuration?: FileUploadConfig;
+    jobId?: string;
   };
   updateFormState?: (payload: FileUploadFormContextType) => void;
   deleteFile?: (file: File) => void;

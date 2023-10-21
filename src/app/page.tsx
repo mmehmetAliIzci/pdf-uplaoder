@@ -27,8 +27,7 @@ export default function Home() {
         </div>
 
         {/* dropzone */}
-        <Dropzone/>
-        
+        <Dropzone />
       </div>
     </main>
   );

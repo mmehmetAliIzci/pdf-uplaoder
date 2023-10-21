@@ -2,8 +2,9 @@
 import Image from 'next/image';
 import { DragEvent, ChangeEvent, useContext } from 'react';
 import { FileUploadFormContext } from './fileUploadFormContext';
+import { Progress } from '@/components/ui/progress';
 
-export const UploadStep = () => {
+export const FileSelectionStep = () => {
   const { updateFormState, currentFormState } = useContext(
     FileUploadFormContext
   );
@@ -13,7 +14,6 @@ export const UploadStep = () => {
     if (files && updateFormState) {
       updateFormState({
         currentFormState: {
-          configuration: currentFormState.configuration,
           step: 1,
           files: Array.from(files),
         },
@@ -23,7 +23,6 @@ export const UploadStep = () => {
 
   const handleDrop = (event: DragEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     const files = event.dataTransfer.files;
 
     if (files.length && updateFormState) {

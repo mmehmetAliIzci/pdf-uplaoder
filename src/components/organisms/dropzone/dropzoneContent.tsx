@@ -1,15 +1,17 @@
 import { useContext } from 'react';
-import { ConfigurationStep } from './steps/configurationStep';
+import { CompressStep } from './steps/compressStep';
 import { FileUploadFormContext } from './steps/fileUploadFormContext';
-import { UploadStep } from './steps/uploadStep';
+import { FileSelectionStep } from './steps/fileSelectionStep';
+import { DownloadStep } from './steps/downloadStep';
 
 export const DropzoneContent = () => {
   const { currentFormState } = useContext(FileUploadFormContext);
+
   return (
     <>
-      {currentFormState?.step === 0 && <UploadStep />}
-      {currentFormState?.step === 1 && <ConfigurationStep />}
-      {currentFormState?.step === 2 && <UploadStep />}
+      {currentFormState?.step === 0 && <DownloadStep />}
+      {currentFormState?.step === 1 && <CompressStep />}
+      {currentFormState?.step === 2 && <DownloadStep />}
     </>
   );
 };
