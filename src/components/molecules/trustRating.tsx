@@ -1,9 +1,19 @@
-import {
-  TrustRatingResponseType,
-  fakeResponse,
-} from '@/app/api/trustScore/route';
 import Image from 'next/image';
 
+export function fakeResponse<T>(data: T, delay = 500): Promise<T> {
+    return new Promise((resolve, _) => {
+      setTimeout(() => {
+        resolve(data);
+      }, delay);
+    });
+  }
+  
+  export type TrustRatingResponseType = {
+    trustRating: string;
+    trustCount: string;
+  };
+
+  
 async function fetchTrustRating() {
   const data = await fakeResponse<TrustRatingResponseType>({
     trustRating: '4',

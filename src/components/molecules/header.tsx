@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import Link from 'next/link';
@@ -9,7 +7,7 @@ import { TrustRating } from './trustRating';
 export const Header = () => {
   return (
     <header className='bg-white'>
-      <div className='mx-auto flex h-24 max-w-screen-lg items-center gap-8 bg-primary-200 px-4 sm:px-32 lg:px-8'>
+      <div className='mx-auto flex h-24 w-full items-center gap-8 bg-primary-200 sm:px-32 px-4'>
         <Link className='block' href='/'>
           <span className='sr-only'>Home</span>
           <Image alt='logo' width={210} height={50} src='./logo.svg' />
@@ -65,7 +63,7 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <div className='mx-auto flex h-14 max-w-screen-lg items-center justify-between gap-8 bg-primary px-4 sm:px-32 lg:px-8'>
+      <div className='mx-auto flex h-14 w-full items-center justify-between gap-8 bg-primary sm:px-32 px-4'>
         <Suspense fallback={'Loading...'}>
           <TrustRating />
         </Suspense>
