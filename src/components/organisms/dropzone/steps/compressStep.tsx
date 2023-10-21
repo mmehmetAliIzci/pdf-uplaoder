@@ -95,12 +95,12 @@ export const CompressStep = () => {
         <div className='flex h-96 flex-col items-center justify-center gap-2 px-8'>
           <Progress value={progress} />
           {(uploadLoading || uploadSuccess) && (
-            <span className={uploadSuccess ? 'text-muted' : ''}>
+            <span className={uploadSuccess ? 'text-gray-400' : ''}>
               Uploading your files... (%{progress})
             </span>
           )}
           {(compressLoading || compressSuccess) && (
-            <span className={compressSuccess ? 'text-muted' : ''}>
+            <span className={compressSuccess ? 'text-gray' : ''}>
               Compressing your files... (%{progress})
             </span>
           )}

@@ -9,7 +9,7 @@ export const DropzoneContent = () => {
 
   return (
     <>
-      {currentFormState?.step === 0 && <DownloadStep />}
+      {currentFormState?.step === 0 && <FileSelectionStep />}
       {currentFormState?.step === 1 && <CompressStep />}
       {currentFormState?.step === 2 && <DownloadStep />}
     </>

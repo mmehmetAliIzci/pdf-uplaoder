@@ -27,11 +27,6 @@ export async function POST(
 
     
     if (!response.ok) {
-        console.log("Response Object:", response); // Log the response object
-
-        const responseBody = await response.text(); // Get the response body
-        console.log("Response Body:", responseBody); // Log the response body
-  
         throw new Error(
           `Failed to upload to external API with status: ${response.status}`
         );
