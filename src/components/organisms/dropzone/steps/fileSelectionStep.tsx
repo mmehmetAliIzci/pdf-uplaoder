@@ -2,7 +2,6 @@
 import Image from 'next/image';
 import { DragEvent, ChangeEvent, useContext } from 'react';
 import { FileUploadFormContext } from './fileUploadFormContext';
-import { Progress } from '@/components/ui/progress';
 
 export const FileSelectionStep = () => {
   const { updateFormState, currentFormState } = useContext(

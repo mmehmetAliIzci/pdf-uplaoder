@@ -11,31 +11,27 @@ export async function POST(
   req: NextRequest
 ): Promise<NextResponse<CompressResponse[] | { error: any }>> {
   try {
-    const res = await req.json()
+    const res = await req.json();
 
-    const response = await fetch(
-        CompressURL,
-      {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'charset': 'utf-8'
-        },
-        body: JSON.stringify(res),
-      }
-    );
+    const response = await fetch(CompressURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        charset: 'utf-8',
+      },
+      body: JSON.stringify(res),
+    });
 
-    
     if (!response.ok) {
-        throw new Error(
-          `Failed to upload to external API with status: ${response.status}`
-        );
+      throw new Error(
+        `Failed to upload to external API with status: ${response.status}`
+      );
     }
 
     const responseData = await response.json();
 
     return NextResponse.json(responseData);
   } catch (error) {
-    return NextResponse.json({ error }, {status: 400});
+    return NextResponse.json({ error }, { status: 400 });
   }
 }

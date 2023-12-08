@@ -1,8 +1,9 @@
-import Modal from '@/components/ui/modal';
+import { FullScreenModal } from '@/components/ui/fullScreenModal';
 import { useContext, useState } from 'react';
 
 import Image from 'next/image';
 import { FileUploadFormContext } from '../organisms/dropzone/steps/fileUploadFormContext';
+import { Button } from './button';
 
 export const FilePreviewIcon = ({ file }: { file: File }) => {
   const { currentFormState, resetForm, deleteFile } = useContext(
@@ -20,11 +21,20 @@ export const FilePreviewIcon = ({ file }: { file: File }) => {
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      <Modal
-        isOpen={showPreview}
-        onClose={() => setShowPreview(false)}
-        pdfSource={URL.createObjectURL(file)}
-      />
+      <FullScreenModal isOpen={showPreview}>
+        <iframe
+          className='h-full w-full'
+          src={URL.createObjectURL(file)}
+          frameBorder='0'
+        ></iframe>
+        <Button
+          size={'xs'}
+          onClick={() => setShowPreview(false)}
+          className='float-right mr-2 mt-4 rounded bg-red-600 px-4 py-2 text-white hover:bg-red-700'
+        >
+          Close
+        </Button>
+      </FullScreenModal>
 
       <div className='flex flex-row justify-between'>
         <Image
