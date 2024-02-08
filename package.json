@@ -10,7 +10,7 @@
     "format": "prettier --write ."
   },
   "engines": {
-    "node": "18.17.0"
+    "node": "18.17.1"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",
